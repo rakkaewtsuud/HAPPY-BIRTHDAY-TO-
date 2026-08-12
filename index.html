@@ -15,7 +15,6 @@
         }
 
         body {
-            /* ธีมสีพาสเทล ละมุนตา ชมพู-พีชอ่อน ๆ */
             background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
             color: #555555;
             min-height: 100vh;
@@ -43,13 +42,14 @@
         }
 
         #landing h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 15px;
             animation: bounce 2s infinite;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         #landing p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 30px;
             font-weight: 300;
         }
@@ -58,18 +58,19 @@
             background: white;
             color: #ff5277;
             border: none;
-            padding: 12px 35px;
-            font-size: 1.1rem;
+            padding: 15px 40px;
+            font-size: 1.2rem;
             font-weight: 600;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            transition: transform 0.3s, background 0.3s;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
         }
 
         .btn-open:hover {
-            transform: scale(1.05);
+            transform: translateY(-3px) scale(1.05);
             background: #fff5f7;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
         /* Main Content */
@@ -80,86 +81,98 @@
             display: none;
             position: relative;
             z-index: 10;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .container.show {
+            opacity: 1;
         }
 
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         header h2 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: #b73252;
             margin-bottom: 10px;
         }
 
         header p {
             color: #777;
+            font-size: 1.1rem;
         }
 
         /* Counter Section */
         .counter-box {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            padding: 25px;
+            padding: 30px;
             border-radius: 20px;
             text-align: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 50px;
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
         .counter-box h3 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #777;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .counter-number {
-            font-size: 2.8rem;
-            font-weight: 600;
+            font-size: 3.5rem;
+            font-weight: 700;
             color: #ff5277;
+            background: linear-gradient(45deg, #ff3366, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* Gallery Section */
         .gallery-section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .gallery-section h3 {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             color: #b73252;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
         }
 
         .gallery-card {
             background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
-            transition: transform 0.3s;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            position: relative;
         }
 
         .gallery-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
 
         .gallery-card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
         }
 
         .gallery-card p {
-            padding: 15px;
-            font-size: 0.95rem;
+            padding: 20px;
+            font-size: 1rem;
             text-align: center;
             color: #555;
         }
@@ -168,55 +181,130 @@
         .wish-section {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            padding: 30px;
+            padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
         }
 
         .wish-section h3 {
             color: #b73252;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
         }
 
         .wish-section p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             line-height: 1.8;
             color: #555;
             white-space: pre-line;
             text-align: left;
             display: inline-block;
+            max-width: 650px;
         }
 
-        /* Floating Hearts Animation */
-        .heart {
+        /* Cute Interactive Effects (Hearts & Balloons) */
+        .effect-item {
             position: absolute;
-            color: #ff5277;
-            font-size: 20px;
-            animation: floatUp 4s linear infinite;
-            z-index: 1;
-            opacity: 0.7;
+            font-size: 24px;
+            pointer-events: auto; /* ให้เมาส์ชี้โดน */
+            cursor: pointer;
+            z-index: 5;
+            transition: transform 0.2s;
+        }
+        
+        .effect-item:hover {
+            transform: scale(1.5) rotate(10deg);
         }
 
-        @keyframes floatUp {
-            0% {
-                transform: translateY(100vh) scale(0.5);
-                opacity: 0;
-            }
-            50% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(-10vh) scale(1.2);
-                opacity: 0;
-            }
+        /* Pop-up Gift Box */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+
+        .popup-content {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            animation: popIn 0.5s ease;
+            position: relative;
+        }
+
+        .popup-content h4 {
+            font-size: 1.8rem;
+            color: #ff3366;
+            margin-bottom: 15px;
+        }
+
+        .popup-content p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .btn-close-popup {
+            background: linear-gradient(135deg, #ff7eb3 0%, #ff758c 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .btn-close-popup:hover {
+            background: linear-gradient(135deg, #ff66a3 0%, #ff607a 100%);
+        }
+
+        .gift-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: shake 2s infinite;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
         }
 
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
+        }
+
+        /* Bubblegum explosion effect on click */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: explosion 0.6s ease-out forwards;
+        }
+
+        @keyframes explosion {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
         }
     </style>
 </head>
@@ -225,7 +313,7 @@
     <!-- Landing Screen -->
     <div id="landing">
         <h1>🎉 Happy Birthday ❤️</h1>
-        <p>มีเรื่องราวและความในใจซ่อนอยู่ข้างในนะ คลิกเลย!</p>
+        <p>มีเซอร์ไพรส์เล็ก ๆ น้อย ๆ รอเธออยู่ข้างในนะ... กดเลย!</p>
         <button class="btn-open" onclick="openWebsite()">เปิดดูของขวัญ</button>
     </div>
 
@@ -233,27 +321,29 @@
     <div class="container" id="mainContent">
         <header>
             <h2>Happy Birthday to My Love ✨</h2>
-            <p>สุขสันต์วันเกิดนะคนดีของเค้า</p>
+            <p>สุขสันต์วันเกิดนะคับคนเก่งของเค้า</p>
         </header>
 
         <!-- Relationship Counter (735 Days) -->
         <div class="counter-box">
-            <h3>ระยะเวลาที่เราจับมือเดินทางร่วมกันมา</h3>
+            <h3>ระยะเวลาที่เรารักกัน</h3>
             <div class="counter-number">735 วัน</div>
-            <p style="margin-top: 5px; color: #888;">ขอบคุณที่อยู่ข้างกันและสร้างความทรงจำดี ๆ ด้วยกันมาตลอดนะ</p>
+            <p style="margin-top: 10px; color: #888;">ขอบคุณที่อยู่เติมเต็มความสุขให้กันและกันตลอดมานะ</p>
         </div>
 
         <!-- Gallery -->
         <div class="gallery-section">
-            <h3>📸 ความทรงจำของเรา</h3>
+            <h3>📸 ความทรงจำแสนพิเศษ</h3>
             <div class="gallery-grid">
                 <div class="gallery-card">
+                    <!-- เปลี่ยนลิงก์รูปภาพตรงนี้ -->
                     <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=500&q=80" alt="Memory 1">
-                    <p>ทุกรอยยิ้มของเธอคือความสุขของเค้า 😊</p>
+                    <p>ทุกช่วงเวลาที่มีเธอ คือช่วงเวลาที่ดีที่สุด 😊</p>
                 </div>
                 <div class="gallery-card">
+                    <!-- เปลี่ยนลิงก์รูปภาพตรงนี้ -->
                     <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=500&q=80" alt="Memory 2">
-                    <p>ขอบคุณที่คอยซัพพอร์ตกันในทุก ๆ วันนะ ❤️</p>
+                    <p>รักเธอมากขึ้นทุกวันเลยนะรู้มั้ย ❤️</p>
                 </div>
             </div>
         </div>
@@ -261,12 +351,21 @@
         <!-- Wish Message -->
         <div class="wish-section">
             <h3>💌 คำอวยพรจากใจ</h3>
-            <p>ขอให้เธอมีความสุขมาก ๆ ยิ้มเยอะ ๆ ในทุก ๆ วัน
+            <p>ขอให้เธอมีความสุขมาก ๆ ยิ้มเยอะ ๆ สดใสแบบนี้ตลอดไป
 ขอให้สุขภาพร่างกายแข็งแรง ไม่เจ็บไม่ป่วย
-ขอให้เจอแต่เรื่องราวดี ๆ และคนรอบตัวที่ดีใจหาย
-ขอให้ทุกความฝันและสิ่งที่เธอตั้งใจประสบความสำเร็จนะ
-และที่สำคัญ... ขอให้เราได้อยู่ฉลองวันเกิดด้วยกันแบบนี้ไปนาน ๆ เลย
-รักเธอที่สุดในโลกยยยย! 🎂✨</p>
+ขอให้ประสบความสำเร็จในสิ่งที่หวังทุกอย่าง
+ไม่ว่าจะเจออะไร ขอให้รู้ว่ามีเค้าคอยอยู่ข้าง ๆ เสมอนะ
+รักเธอที่สุดในโลกเลยยยย! 🎂✨</p>
+        </div>
+    </div>
+    
+    <!-- Pop-up -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content">
+            <div class="gift-icon">🎁</div>
+            <h4>SURPRISE!</h4>
+            <p>มีคนแอบสั่งของขวัญชิ้นใหญ่ไว้ให้ด้วยนะ... ลองทายดูสิว่าเป็นอะไร? อิอิ</p>
+            <button class="btn-close-popup" onclick="closePopup()">รับทราบค่ะ/ครับ!</button>
         </div>
     </div>
 
@@ -280,27 +379,36 @@
             
             setTimeout(() => {
                 landing.style.display = 'none';
-                mainContent.style.display = 'block';
-                startHearts(); // เริ่มเอฟเฟกต์หัวใจลอยพาสเทล
+                mainContent.classList.add('show');
+                createInteractiveEffects(); // เริ่มเอฟเฟกต์เมื่อเปิดเว็บ
+                
+                // แสดงป๊อปอัพหลังจากเปิดเว็บ 1.5 วินาที
+                setTimeout(() => {
+                    document.getElementById('popupOverlay').style.display = 'flex';
+                }, 1500);
+                
             }, 800);
         }
 
-        // เอฟเฟกต์หัวใจและลูกโป่งลอย
-        function startHearts() {
-            setInterval(() => {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.innerHTML = ['❤️', '💖', '💕', '✨', '🎈', '🌸'][Math.floor(Math.random() * 6)];
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
-                heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                document.body.appendChild(heart);
-
-                setTimeout(() => {
-                    heart.remove();
-                }, 4000);
-            }, 300);
+        function closePopup() {
+            document.getElementById('popupOverlay').style.display = 'none';
         }
-    </script>
-</body>
-</html>
+
+        // เอฟเฟกต์หัวใจและลูกโป่งลอย + โต้ตอบเมื่อคลิก
+        function createInteractiveEffects() {
+            const symbols = ['❤️', '💖', '💕', '✨', '🎈', '🎀'];
+            
+            // สร้างไอเท็มลอยต่อเนื่อง
+            setInterval(() => {
+                const item = document.createElement('div');
+                item.classList.add('effect-item');
+                item.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                item.style.left = Math.random() * 95 + 'vw';
+                item.style.animationDuration = (Math.random() * 3 + 4) + 's'; // ความเร็วในการลอย
+                item.style.opacity = Math.random() * 0.5 + 0.3; // ความโปร่งใส
+                item.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                document.body.appendChild(item);
+
+                // เมื่อเอาเมาส์ไปชี้ (บนมือถือคือการแตะ) ให้เกิดเอฟเฟกต์ระเบิด
+                item.addEventListener('mouseover', function() {
+                    create
