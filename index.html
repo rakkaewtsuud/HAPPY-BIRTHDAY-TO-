@@ -42,14 +42,14 @@
         }
 
         #landing h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin-bottom: 15px;
             animation: bounce 2s infinite;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         #landing p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 30px;
             font-weight: 300;
         }
@@ -156,11 +156,10 @@
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             transition: transform 0.4s, box-shadow 0.4s;
-            position: relative;
         }
 
         .gallery-card:hover {
-            transform: translateY(-10px) rotate(1deg);
+            transform: translateY(-10px);
             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
 
@@ -186,7 +185,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.5);
-            position: relative;
         }
 
         .wish-section h3 {
@@ -205,18 +203,32 @@
             max-width: 650px;
         }
 
-        /* Cute Interactive Effects (Hearts & Balloons) */
-        .effect-item {
+        /* Floating Hearts */
+        .floating-heart {
             position: absolute;
             font-size: 24px;
-            pointer-events: auto; /* ให้เมาส์ชี้โดน */
-            cursor: pointer;
-            z-index: 5;
-            transition: transform 0.2s;
+            animation: floatUp 5s linear infinite;
+            z-index: 1;
+            opacity: 0.7;
         }
-        
-        .effect-item:hover {
-            transform: scale(1.5) rotate(10deg);
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(105vh) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         /* Pop-up Gift Box */
@@ -243,7 +255,6 @@
             width: 90%;
             box-shadow: 0 20px 50px rgba(0,0,0,0.3);
             animation: popIn 0.5s ease;
-            position: relative;
         }
 
         .popup-content h4 {
@@ -288,24 +299,6 @@
             0%, 100% { transform: rotate(-5deg); }
             50% { transform: rotate(5deg); }
         }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Bubblegum explosion effect on click */
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            animation: explosion 0.6s ease-out forwards;
-        }
-
-        @keyframes explosion {
-            0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
-            100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
-        }
     </style>
 </head>
 <body>
@@ -336,12 +329,10 @@
             <h3>📸 ความทรงจำแสนพิเศษ</h3>
             <div class="gallery-grid">
                 <div class="gallery-card">
-                    <!-- เปลี่ยนลิงก์รูปภาพตรงนี้ -->
                     <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=500&q=80" alt="Memory 1">
                     <p>ทุกช่วงเวลาที่มีเธอ คือช่วงเวลาที่ดีที่สุด 😊</p>
                 </div>
                 <div class="gallery-card">
-                    <!-- เปลี่ยนลิงก์รูปภาพตรงนี้ -->
                     <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=500&q=80" alt="Memory 2">
                     <p>รักเธอมากขึ้นทุกวันเลยนะรู้มั้ย ❤️</p>
                 </div>
@@ -364,7 +355,7 @@
         <div class="popup-content">
             <div class="gift-icon">🎁</div>
             <h4>SURPRISE!</h4>
-            <p>มีคนแอบสั่งของขวัญชิ้นใหญ่ไว้ให้ด้วยนะ... ลองทายดูสิว่าเป็นอะไร? อิอิ</p>
+            <p>มีคนแอบเตรียมของขวัญชิ้นพิเศษไว้ให้ด้วยนะ... ขอให้วันนี้เป็นวันที่ดีที่สุดของเธอนะคะ/ครับ! ❤️</p>
             <button class="btn-close-popup" onclick="closePopup()">รับทราบค่ะ/ครับ!</button>
         </div>
     </div>
@@ -379,13 +370,17 @@
             
             setTimeout(() => {
                 landing.style.display = 'none';
-                mainContent.classList.add('show');
-                createInteractiveEffects(); // เริ่มเอฟเฟกต์เมื่อเปิดเว็บ
+                mainContent.style.display = 'block';
+                setTimeout(() => {
+                    mainContent.classList.add('show');
+                }, 50);
                 
-                // แสดงป๊อปอัพหลังจากเปิดเว็บ 1.5 วินาที
+                startFloatingHearts(); // เริ่มเอฟเฟกต์หัวใจลอย
+                
+                // แสดงป๊อปอัพหลังจากเปิดเว็บ 1.2 วินาที
                 setTimeout(() => {
                     document.getElementById('popupOverlay').style.display = 'flex';
-                }, 1500);
+                }, 1200);
                 
             }, 800);
         }
@@ -394,21 +389,24 @@
             document.getElementById('popupOverlay').style.display = 'none';
         }
 
-        // เอฟเฟกต์หัวใจและลูกโป่งลอย + โต้ตอบเมื่อคลิก
-        function createInteractiveEffects() {
+        // เอฟเฟกต์หัวใจและลูกโป่งลอย
+        function startFloatingHearts() {
             const symbols = ['❤️', '💖', '💕', '✨', '🎈', '🎀'];
             
-            // สร้างไอเท็มลอยต่อเนื่อง
             setInterval(() => {
-                const item = document.createElement('div');
-                item.classList.add('effect-item');
-                item.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-                item.style.left = Math.random() * 95 + 'vw';
-                item.style.animationDuration = (Math.random() * 3 + 4) + 's'; // ความเร็วในการลอย
-                item.style.opacity = Math.random() * 0.5 + 0.3; // ความโปร่งใส
-                item.style.fontSize = (Math.random() * 20 + 20) + 'px';
-                document.body.appendChild(item);
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                heart.style.left = Math.random() * 95 + 'vw';
+                heart.style.fontSize = (Math.random() * 15 + 20) + 'px';
+                heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                document.body.appendChild(heart);
 
-                // เมื่อเอาเมาส์ไปชี้ (บนมือถือคือการแตะ) ให้เกิดเอฟเฟกต์ระเบิด
-                item.addEventListener('mouseover', function() {
-                    create
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }, 350);
+        }
+    </script>
+</body>
+</html>
