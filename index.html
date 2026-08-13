@@ -228,6 +228,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.5);
+            margin-bottom: 50px;
         }
 
         .wish-section h3 {
@@ -245,6 +246,119 @@
             display: inline-block;
             max-width: 650px;
         }
+
+        /* Python Code & Heart Section (สไตล์แบบรูปที่ 2 บนพื้นหลังเข้ม) */
+        .code-heart-section {
+            background: #121212;
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .code-heart-section h3 {
+            color: #ff6b8b;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        .code-heart-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        /* Canvas วาดรูปหัวใจด้วยโค้ด */
+        #heartCanvasContainer {
+            width: 320px;
+            height: 320px;
+            background: black;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+
+        #heartCanvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* กล่องจำลองหน้าต่าง Code Editor */
+        .code-editor-box {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            text-align: left;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            width: 350px;
+            max-width: 100%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+            position: relative;
+        }
+
+        .code-header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+        }
+
+        .code-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .code-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .btn-run-code {
+            background: #ff3366;
+            color: white;
+            border: none;
+            padding: 6px 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            font-family: 'Prompt', sans-serif;
+            box-shadow: 0 2px 8px rgba(255, 51, 102, 0.4);
+        }
+
+        .btn-run-code:hover {
+            background: #ff1a4d;
+            transform: scale(1.05);
+        }
+
+        .code-content {
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+
+        .c-keyword { color: #c586c0; }
+        .c-def { color: #4ec9b0; }
+        .c-string { color: #ce9178; }
+        .c-number { color: #b5cea8; }
+        .c-comment { color: #6a9955; }
 
         /* Floating Hearts */
         .floating-heart {
@@ -409,6 +523,45 @@
 ไม่ว่าจะเจออะไร ขอให้รู้ว่ามีเค้าคอยอยู่ข้าง ๆ เสมอนะ
 รักเธอที่สุดในโลกเลยยยย! 🎂✨</p>
         </div>
+
+        <!-- Python Code & Heart Animation Section (สไตล์รูปที่ 2 พร้อมปุ่มกดรันโค้ด) -->
+        <div class="code-heart-section">
+            <h3>💻 Python Heart Animation</h3>
+            <div class="code-heart-container">
+                <!-- ส่วนแสดงผลรูปหัวใจ -->
+                <div id="heartCanvasContainer">
+                    <canvas id="heartCanvas" width="320" height="320"></canvas>
+                </div>
+
+                <!-- หน้าต่างจำลองโค้ด Python -->
+                <div class="code-editor-box">
+                    <div class="code-header-bar">
+                        <div class="code-dots">
+                            <div class="code-dot dot-red"></div>
+                            <div class="code-dot dot-yellow"></div>
+                            <div class="code-dot dot-green"></div>
+                        </div>
+                        <button class="btn-run-code" onclick="runPythonHeart()">▶ รันโค้ด</button>
+                    </div>
+                    <div class="code-content">
+<span class="c-keyword">import</span> turtle<br>
+<span class="c-keyword">import</span> math<br><br>
+screen = turtle.Screen()<br>
+screen.bgcolor(<span class="c-string">"black"</span>)<br>
+t = turtle.Turtle()<br>
+t.color(<span class="c-string">"#ffb6c1"</span>)<br><br>
+<span class="c-comment"># วาดรูปหัวใจสื่อรักถึงเธอ</span><br>
+<span class="c-keyword">for</span> i <span class="c-keyword">in</span> <span class="c-def">range</span>(<span class="c-number">120</span>):<br>
+&nbsp;&nbsp;angle = i * (math.pi * <span class="c-number">2</span>) / <span class="c-number">120</span><br>
+&nbsp;&nbsp;x = <span class="c-number">16</span> * (math.sin(angle) ** <span class="c-number">3</span>)<br>
+&nbsp;&nbsp;y = (<span class="c-number">13</span> * math.cos(angle) - <span class="c-number">5</span> *<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;math.cos(<span class="c-number">2</span> * angle)) * <span class="c-number">11</span><br>
+&nbsp;&nbsp;t.goto(x, y)<br>
+<span class="c-keyword">print</span>(<span class="c-string">"I Love You ❤️"</span>)
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
     <!-- Pop-up -->
@@ -422,7 +575,7 @@
     </div>
 
     <script>
-        // สร้างหัวใจและไอเทมลอยที่หน้าแรก (รวมหัวใจ ดาว โบว์ ลูกโป่ง)
+        // สร้างหัวใจและไอเทมลอยที่หน้าแรก
         function startLandingHearts() {
             const container = document.getElementById('landingHeartsContainer');
             const symbols = ['💖', '❤️', '✨', '🎀', '🎈', '💕'];
@@ -456,6 +609,7 @@
                 mainContent.style.display = 'block';
                 setTimeout(() => {
                     mainContent.classList.add('show');
+                    drawHeartOutline(); // วาดโครงร่างหัวใจรอไว้เบาๆ
                 }, 50);
                 
                 startFloatingHearts(); 
@@ -488,6 +642,56 @@
                     heart.remove();
                 }, 5000);
             }, 300);
+        }
+
+        // ฟังก์ชันวาดโครงหัวใจจางๆ บน Canvas
+        function drawHeartOutline() {
+            const canvas = document.getElementById('heartCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = '#2a151b';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            for (let i = 0; i < 120; i++) {
+                let angle = i * (Math.PI * 2) / 120;
+                let x = 16 * Math.pow(Math.sin(angle), 3);
+                let y = -(13 * Math.cos(angle) - 5 * Math.cos(2 * angle) - 2 * Math.cos(3 * angle) - Math.cos(4 * angle));
+                let screenX = canvas.width / 2 + x * 9;
+                let screenY = canvas.height / 2 + y * 9 - 10;
+                if (i === 0) ctx.moveTo(screenX, screenY);
+                else ctx.lineTo(screenX, screenY);
+            }
+            ctx.closePath();
+            ctx.stroke();
+        }
+
+        // ฟังก์ชันรันโค้ดจำลองการวาดด้วยตัวอักษร I love you
+        function runPythonHeart() {
+            const canvas = document.getElementById('heartCanvas');
+            const ctx = canvas.getContext('2d');
+            let i = 0;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            function animateDrawing() {
+                if (i <= 120) {
+                    ctx.fillStyle = '#ffb6c1';
+                    ctx.font = 'bold 9px Arial';
+                    ctx.textAlign = 'center';
+                    
+                    let angle = i * (Math.PI * 2) / 120;
+                    let x = 16 * Math.pow(Math.sin(angle), 3);
+                    let y = -(13 * Math.cos(angle) - 5 * Math.cos(2 * angle) - 2 * Math.cos(3 * angle) - Math.cos(4 * angle));
+                    
+                    let screenX = canvas.width / 2 + x * 9;
+                    let screenY = canvas.height / 2 + y * 9 - 10;
+                    
+                    ctx.fillText('I love you', screenX, screenY);
+                    i += 2;
+                    requestAnimationFrame(animateDrawing);
+                }
+            }
+            animateDrawing();
         }
     </script>
 </body>
