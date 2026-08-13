@@ -75,7 +75,7 @@
 
         /* Main Content */
         .container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             padding: 40px 20px;
             display: none;
@@ -91,7 +91,7 @@
 
         header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         header h2 {
@@ -132,48 +132,65 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Gallery Section */
+        /* Polaroid Gallery Section */
         .gallery-section {
             margin-bottom: 50px;
         }
 
         .gallery-section h3 {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             color: #b73252;
             font-size: 1.8rem;
         }
 
-        .gallery-grid {
+        .polaroid-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            justify-items: center;
         }
 
-        .gallery-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            transition: transform 0.4s, box-shadow 0.4s;
+        /* สไตล์กรอบรูปโพลารอยด์ */
+        .polaroid-card {
+            background: white;
+            padding: 15px 15px 25px 15px;
+            border-radius: 5px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            width: 260px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
         }
 
-        .gallery-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        /* เอฟเฟกต์เอียงซ้าย-ขวาสลับกัน */
+        .polaroid-card:nth-child(odd) {
+            transform: rotate(-3deg);
         }
 
-        .gallery-card img {
+        .polaroid-card:nth-child(even) {
+            transform: rotate(3deg);
+        }
+
+        /* เมื่อเอาเมาส์ไปชี้ รูปจะตั้งตรงและขยายขึ้นนิดหน่อย */
+        .polaroid-card:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            z-index: 5;
+        }
+
+        .polaroid-card img {
             width: 100%;
-            height: 220px;
+            height: 230px;
             object-fit: cover;
+            border-radius: 3px;
         }
 
-        .gallery-card p {
-            padding: 20px;
-            font-size: 1rem;
+        .polaroid-caption {
             text-align: center;
+            margin-top: 15px;
+            font-size: 1rem;
             color: #555;
+            font-family: 'Prompt', sans-serif;
         }
 
         /* Wish Section */
@@ -324,18 +341,35 @@
             <p style="margin-top: 10px; color: #888;">ขอบคุณที่อยู่เติมเต็มความสุขให้กันและกันตลอดมานะ</p>
         </div>
 
-        <!-- Gallery -->
+        <!-- Polaroid Gallery (4 รูป เอียงซ้าย/ขวาสลับกัน) -->
         <div class="gallery-section">
-            <h3>📸 ความทรงจำแสนพิเศษ</h3>
-            <div class="gallery-grid">
-                <div class="gallery-card">
-                    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=500&q=80" alt="Memory 1">
-                    <p>ทุกช่วงเวลาที่มีเธอ คือช่วงเวลาที่ดีที่สุด 😊</p>
+            <h3>📸 ความทรงจำแสนพิเศษของเรา</h3>
+            <div class="polaroid-grid">
+                
+                <!-- รูปที่ 1 (เอียงซ้าย) -->
+                <div class="polaroid-card">
+                    <img src="IMG_2260.jpeg" alt="Memory 1">
+                    <div class="polaroid-caption">รอยยิ้มของเธอคือความสุข 😊</div>
                 </div>
-                <div class="gallery-card">
-                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=500&q=80" alt="Memory 2">
-                    <p>รักเธอมากขึ้นทุกวันเลยนะรู้มั้ย ❤️</p>
+
+                <!-- รูปที่ 2 (เอียงขวา) -->
+                <div class="polaroid-card">
+                    <img src="IMG_6829.jpeg" alt="Memory 2">
+                    <div class="polaroid-caption">ช่วงเวลาดี ๆ ที่มีกัน ❤️</div>
                 </div>
+
+                <!-- รูปที่ 3 (เอียงซ้าย) -->
+                <div class="polaroid-card">
+                    <img src="IMG_8720.jpeg" alt="Memory 3">
+                    <div class="polaroid-caption">จับมือกันไปนาน ๆ นะ ✨</div>
+                </div>
+
+                <!-- รูปที่ 4 (เอียงขวา) -->
+                <div class="polaroid-card">
+                    <img src="IMG_9665.jpeg" alt="Memory 4">
+                    <div class="polaroid-caption">รักเธอที่สุดในโลกเลย 🥰</div>
+                </div>
+
             </div>
         </div>
 
@@ -375,9 +409,8 @@
                     mainContent.classList.add('show');
                 }, 50);
                 
-                startFloatingHearts(); // เริ่มเอฟเฟกต์หัวใจลอย
+                startFloatingHearts(); 
                 
-                // แสดงป๊อปอัพหลังจากเปิดเว็บ 1.2 วินาที
                 setTimeout(() => {
                     document.getElementById('popupOverlay').style.display = 'flex';
                 }, 1200);
@@ -389,7 +422,6 @@
             document.getElementById('popupOverlay').style.display = 'none';
         }
 
-        // เอฟเฟกต์หัวใจและลูกโป่งลอย
         function startFloatingHearts() {
             const symbols = ['❤️', '💖', '💕', '✨', '🎈', '🎀'];
             
