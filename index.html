@@ -39,19 +39,21 @@
             color: white;
             text-align: center;
             padding: 20px;
+            overflow: hidden;
         }
 
         #landing h1 {
             font-size: 2.8rem;
             margin-bottom: 15px;
             animation: bounce 2s infinite;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         #landing p {
             font-size: 1.2rem;
             margin-bottom: 30px;
             font-weight: 300;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
         }
 
         .btn-open {
@@ -63,14 +65,37 @@
             font-weight: 600;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2), 0 0 15px rgba(255, 255, 255, 0.5);
             transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
         }
 
         .btn-open:hover {
             transform: translateY(-3px) scale(1.05);
             background: #fff5f7;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3), 0 0 25px rgba(255, 255, 255, 0.8);
+        }
+
+        /* หัวใจลอยที่หน้าแรก */
+        .landing-heart {
+            position: absolute;
+            font-size: 20px;
+            animation: floatUpLanding 4s linear infinite;
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        @keyframes floatUpLanding {
+            0% {
+                transform: translateY(105vh) scale(0.6);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
         }
 
         /* Main Content */
@@ -98,6 +123,7 @@
             font-size: 2.5rem;
             color: #b73252;
             margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 182, 193, 0.6);
         }
 
         header p {
@@ -291,7 +317,7 @@
             color: white;
             border: none;
             padding: 12px 30px;
-            font-size: 1rem;
+            font-size: 1.2rem;
             border-radius: 50px;
             cursor: pointer;
             transition: background 0.3s;
@@ -322,9 +348,10 @@
 
     <!-- Landing Screen -->
     <div id="landing">
+        <div id="landingHeartsContainer"></div>
         <h1>🎉 Happy Birthday ❤️</h1>
         <p>มีเซอร์ไพรส์เล็ก ๆ น้อย ๆ รอเธออยู่ข้างในนะ... กดเลย!</p>
-        <button class="btn-open" onclick="openWebsite()">เปิดดูของขวัญ</button>
+        <button class="btn-open" onclick="openWebsite()">กดเพื่อรับความรักจากเค้า 💖</button>
     </div>
 
     <!-- Main Content -->
@@ -395,6 +422,28 @@
     </div>
 
     <script>
+        // สร้างหัวใจลอยที่หน้าแรก
+        function startLandingHearts() {
+            const container = document.getElementById('landingHeartsContainer');
+            const symbols = ['❤️', '💖', '💕', '✨'];
+            
+            setInterval(() => {
+                if(document.getElementById('landing').style.display === 'none') return;
+                const heart = document.createElement('div');
+                heart.classList.add('landing-heart');
+                heart.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                heart.style.left = Math.random() * 95 + 'vw';
+                heart.style.fontSize = (Math.random() * 15 + 18) + 'px';
+                heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                container.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 4000);
+            }, 400);
+        }
+        startLandingHearts();
+
         function openWebsite() {
             const landing = document.getElementById('landing');
             const mainContent = document.getElementById('mainContent');
