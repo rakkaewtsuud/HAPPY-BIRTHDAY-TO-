@@ -75,12 +75,12 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.3), 0 0 25px rgba(255, 255, 255, 0.8);
         }
 
-        /* หัวใจลอยที่หน้าแรก */
+        /* หัวใจและไอเทมลอยที่หน้าแรก */
         .landing-heart {
             position: absolute;
             font-size: 20px;
             animation: floatUpLanding 4s linear infinite;
-            opacity: 0.6;
+            opacity: 0.7;
             z-index: 1;
         }
 
@@ -90,7 +90,7 @@
                 opacity: 0;
             }
             50% {
-                opacity: 0.8;
+                opacity: 0.9;
             }
             100% {
                 transform: translateY(-10vh) scale(1.2);
@@ -252,7 +252,7 @@
             font-size: 24px;
             animation: floatUp 5s linear infinite;
             z-index: 1;
-            opacity: 0.7;
+            opacity: 0.75;
         }
 
         @keyframes floatUp {
@@ -261,7 +261,7 @@
                 opacity: 0;
             }
             50% {
-                opacity: 0.8;
+                opacity: 0.85;
             }
             100% {
                 transform: translateY(-10vh) scale(1.2);
@@ -422,10 +422,10 @@
     </div>
 
     <script>
-        // สร้างหัวใจลอยที่หน้าแรก
+        // สร้างหัวใจและไอเทมลอยที่หน้าแรก (รวมหัวใจ ดาว โบว์ ลูกโป่ง)
         function startLandingHearts() {
             const container = document.getElementById('landingHeartsContainer');
-            const symbols = ['❤️', '💖', '💕', '✨'];
+            const symbols = ['💖', '❤️', '✨', '🎀', '🎈', '💕'];
             
             setInterval(() => {
                 if(document.getElementById('landing').style.display === 'none') return;
@@ -440,7 +440,7 @@
                 setTimeout(() => {
                     heart.remove();
                 }, 4000);
-            }, 400);
+            }, 350);
         }
         startLandingHearts();
 
@@ -471,8 +471,9 @@
             document.getElementById('popupOverlay').style.display = 'none';
         }
 
+        // สร้างหัวใจและไอเทมลอยที่หน้าหลัก
         function startFloatingHearts() {
-            const symbols = ['❤️', '💖', '💕', '✨', '🎈', '🎀'];
+            const symbols = ['💖', '❤️', '✨', '🎀', '🎈', '💕'];
             
             setInterval(() => {
                 const heart = document.createElement('div');
@@ -486,7 +487,7 @@
                 setTimeout(() => {
                     heart.remove();
                 }, 5000);
-            }, 350);
+            }, 300);
         }
     </script>
 </body>
