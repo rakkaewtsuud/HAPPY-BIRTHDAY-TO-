@@ -5,609 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Together For ...</title>
     
-    <!-- ตั้งค่าไอคอนสำหรับเพิ่มลงหน้าจอหลักมือถือ (iOS / Android) -->
     <link rel="apple-touch-icon" href="logoAK.PNG">
     <link rel="icon" type="image/png" href="logoAK.PNG">
-
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Prompt', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
+        body { background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%); color: #555555; min-height: 100vh; overflow-x: hidden; position: relative; }
 
-        body {
-            background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
-            color: #555555;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Landing Screen */
-        #landing {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #ffb199 0%, #ff0844 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            overflow: hidden;
-        }
-
-        #landing h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            animation: bounce 2s infinite;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        #landing p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-        }
-
-        .btn-open {
-            background: white;
-            color: #ff5277;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2), 0 0 15px rgba(255, 255, 255, 0.5);
-            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
-        }
-
-        .btn-open:hover {
-            transform: translateY(-3px) scale(1.05);
-            background: #fff5f7;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3), 0 0 25px rgba(255, 255, 255, 0.8);
-        }
-
-        .landing-heart {
-            position: absolute;
-            font-size: 20px;
-            animation: floatUpLanding 4s linear infinite;
-            opacity: 0.7;
-            z-index: 1;
-        }
-
-        @keyframes floatUpLanding {
-            0% {
-                transform: translateY(105vh) scale(0.6);
-                opacity: 0;
-            }
-            50% {
-                opacity: 0.9;
-            }
-            100% {
-                transform: translateY(-10vh) scale(1.2);
-                opacity: 0;
-            }
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            display: none;
-            position: relative;
-            z-index: 10;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-        .container.show {
-            opacity: 1;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        header h2 {
-            font-size: 2.5rem;
-            color: #b73252;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(255, 182, 193, 0.6);
-        }
-
-        header p {
-            color: #777;
-            font-size: 1.1rem;
-        }
-
-        /* Counter Section */
-        .counter-box {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            margin-bottom: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .counter-box h3 {
-            font-size: 1.3rem;
-            color: #b73252;
-            margin-bottom: 20px;
-        }
-
-        .time-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        @media (max-width: 600px) {
-            .time-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .time-item {
-            background: #fff5f7;
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(255, 82, 119, 0.1);
-        }
-
-        .time-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #ff5277;
-        }
-
-        .time-label {
-            font-size: 0.9rem;
-            color: #777;
-            margin-top: 5px;
-        }
-
-        /* Heart Polaroid Gallery Layout (20 รูป จัดทรงหัวใจสมดุล) */
-        .gallery-section {
-            margin-bottom: 50px;
-        }
-
-        .gallery-section h3 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #b73252;
-            font-size: 1.8rem;
-        }
-
-        .heart-shape-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            width: 100%;
-        }
-
-        .heart-row {
-            display: flex;
-            justify-content: center;
-            gap: 6px;
-            width: 100%;
-        }
-
-        /* แถวแรกทำรอยหยักหัวใจซ้าย-ขวา ให้เว้นระยะตรงกลาง */
-        .heart-row.top-heart-row {
-            gap: 75px; 
-        }
-
-        @media (max-width: 600px) {
-            .heart-row.top-heart-row {
-                gap: 45px;
-            }
-        }
-
-        .polaroid-card {
-            background: white;
-            padding: 5px 5px 10px 5px;
-            border-radius: 3px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            width: 78px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
-
-        .polaroid-card:nth-child(odd) {
-            transform: rotate(-2deg);
-        }
-
-        .polaroid-card:nth-child(even) {
-            transform: rotate(2deg);
-        }
-
-        .polaroid-card:hover {
-            transform: rotate(0deg) scale(1.15);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            z-index: 5;
-        }
-
-        .polaroid-card img {
-            width: 100%;
-            height: 60px;
-            object-fit: cover;
-            border-radius: 2px;
-        }
-
-        .polaroid-caption {
-            text-align: center;
-            margin-top: 4px;
-            font-size: 0.55rem;
-            color: #555;
-            font-family: 'Prompt', sans-serif;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        @media (max-width: 600px) {
-            .polaroid-card {
-                width: 65px;
-                padding: 4px 4px 8px 4px;
-            }
-            .polaroid-card img {
-                height: 50px;
-            }
-            .heart-row {
-                gap: 4px;
-            }
-        }
-
-        /* Wish Section */
-        .wish-section {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            margin-bottom: 50px;
-        }
-
-        .wish-section h3 {
-            color: #b73252;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        .wish-section p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #555;
-            white-space: pre-line;
-            text-align: left;
-            display: inline-block;
-            max-width: 650px;
-        }
-
-        /* Floating Hearts */
-        .floating-heart {
-            position: absolute;
-            font-size: 24px;
-            animation: floatUp 5s linear infinite;
-            z-index: 1;
-            opacity: 0.75;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(105vh) scale(0.5);
-                opacity: 0;
-            }
-            50% {
-                opacity: 0.85;
-            }
-            100% {
-                transform: translateY(-10vh) scale(1.2);
-                opacity: 0;
-            }
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Pop-up Gift Box */
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.6);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            backdrop-filter: blur(5px);
-        }
-
-        .popup-content {
-            background: white;
-            padding: 40px;
-            border-radius: 30px;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            animation: popIn 0.5s ease;
-        }
-
-        .popup-content h4 {
-            font-size: 1.8rem;
-            color: #ff3366;
-            margin-bottom: 15px;
-        }
-
-        .popup-content p {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 25px;
-        }
-
-        .btn-close-popup {
-            background: linear-gradient(135deg, #ff7eb3 0%, #ff758c 100%);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
+        /* ปรับสไตล์รูปให้คงที่ */
+        .polaroid-card { background: white; padding: 10px; border-radius: 4px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); width: 120px; transition: transform 0.3s; position: relative; }
+        .polaroid-card img { width: 100%; height: 100px; object-fit: cover; border-radius: 2px; display: block; }
+        .heart-row { display: flex; justify-content: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
         
-        .btn-close-popup:hover {
-            background: linear-gradient(135deg, #ff66a3 0%, #ff607a 100%);
-        }
-
-        .gift-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            animation: shake 2s infinite;
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0.5); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(5deg); }
-        }
+        /* สไตล์ที่เหลือคงเดิม */
+        #landing { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #ffb199 0%, #ff0844 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1000; transition: opacity 0.8s ease; color: white; text-align: center; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; display: none; opacity: 0; transition: opacity 1s ease; }
+        .container.show { opacity: 1; }
+        .btn-open { background: white; color: #ff5277; border: none; padding: 15px 40px; font-size: 1.2rem; font-weight: 600; border-radius: 50px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <!-- Landing Screen -->
     <div id="landing">
-        <div id="landingHeartsContainer"></div>
         <h1>Happy Anniversary ❤️</h1>
-        <p>มีเรื่องราวและความทรงจำของเราซ่อนอยู่ข้างในนะ... กดเข้าไปดูเลย!</p>
         <button class="btn-open" onclick="openWebsite()">กดตรงนี้เพื่อเปิดดูความทรงจำ 💖</button>
     </div>
 
-    <!-- Main Content -->
     <div class="container" id="mainContent">
-        <header>
-            <h2>Happy Anniversary to My Love ✨</h2>
-            <p>สุขสันต์วันครบรอบนะ ขอบคุณที่อยู่เคียงข้างกันเสมอมา</p>
-        </header>
+        <header><h2>Happy Anniversary to My Love ✨</h2></header>
 
-        <!-- Relationship Live Counter -->
-        <div class="counter-box">
-            <h3>⏳ เวลาที่เราเดินทางมาร่วมกัน</h3>
-            <div class="time-grid">
-                <div class="time-item">
-                    <div class="time-number" id="days">0</div>
-                    <div class="time-label">วัน</div>
-                </div>
-                <div class="time-item">
-                    <div class="time-number" id="hours">0</div>
-                    <div class="time-label">ชั่วโมง</div>
-                </div>
-                <div class="time-item">
-                    <div class="time-number" id="minutes">0</div>
-                    <div class="time-label">นาที</div>
-                </div>
-                <div class="time-item">
-                    <div class="time-number" id="seconds">0</div>
-                    <div class="time-label">วินาที</div>
-                </div>
-            </div>
-            <p style="margin-top: 15px; color: #888; font-size: 0.95rem;">ทุกวินาทีที่มีเธอคือช่วงเวลาที่มีความสุขที่สุดเลยนะ ❤️</p>
-        </div>
-
-        <!-- Polaroid Gallery (จัดเรียงทรงหัวใจ 20 รูป ตามไฟล์จริง) -->
+        <!-- Gallery ตามแพทเทิร์น 2, 2, 7, 5, 3, 1 -->
         <div class="gallery-section">
-            <h3>📸 ความทรงจำแสนพิเศษของเรา</h3>
             <div class="heart-shape-container">
-                
-                <!-- แถวที่ 1 (ยอดหัวใจซ้าย-ขวา): 4 รูป -->
-                <div class="heart-row top-heart-row">
-                    <div class="polaroid-card">
-                        <img src="IMG_0075.jpeg" alt="Memory"><div class="polaroid-caption">ความทรงจำ 💖</div>
-                    </div>
-                    <div class="polaroid-card">
-                        <img src="IMG_0247.jpeg" alt="Memory"><div class="polaroid-caption">ยิ้มหวาน ✨</div>
-                    </div>
-                    <div class="polaroid-card">
-                        <img src="IMG_0482.jpeg" alt="Memory"><div class="polaroid-caption">น่ารัก 🥰</div>
-                    </div>
-                    <div class="polaroid-card">
-                        <img src="IMG_1132.jpeg" alt="Memory"><div class="polaroid-caption">อบอุ่น ☀️</div>
-                    </div>
+                <div class="heart-row"><!-- 2 -->
+                    <div class="polaroid-card"><img src="IMG_0247.jpeg" loading="lazy"></div>
+                    <div class="polaroid-card"><img src="IMG_0482.jpeg" loading="lazy"></div>
                 </div>
-
-                <!-- แถวที่ 2: 6 รูป -->
-                <div class="heart-row">
-                    <div class="polaroid-card"><img src="IMG_1734.jpeg" alt="Memory"><div class="polaroid-caption">ด้วยกัน 💕</div></div>
-                    <div class="polaroid-card"><img src="IMG_1736.jpeg" alt="Memory"><div class="polaroid-caption">มีความสุข</div></div>
-                    <div class="polaroid-card"><img src="IMG_2260.jpeg" alt="Memory"><div class="polaroid-caption">ดีต่อใจ ✨</div></div>
-                    <div class="polaroid-card"><img src="IMG_5718.jpeg" alt="Memory"><div class="polaroid-caption">คนโปรด 🌟</div></div>
-                    <div class="polaroid-card"><img src="IMG_5720.jpeg" alt="Memory"><div class="polaroid-caption">จับมือ 🤝</div></div>
-                    <div class="polaroid-card"><img src="IMG_5729.jpeg" alt="Memory"><div class="polaroid-caption">ที่รัก 🥰</div></div>
+                <div class="heart-row"><!-- 2 -->
+                    <div class="polaroid-card"><img src="IMG_1132.jpeg" loading="lazy"></div>
+                    <div class="polaroid-card"><img src="IMG_1734.jpeg" loading="lazy"></div>
                 </div>
-
-                <!-- แถวที่ 3: 5 รูป (จุดที่กว้างที่สุดของหัวใจ) -->
-                <div class="heart-row">
-                    <div class="polaroid-card"><img src="IMG_6786.jpeg" alt="Memory"><div class="polaroid-caption">รักนะ 💖</div></div>
-                    <div class="polaroid-card"><img src="IMG_6829.jpeg" alt="Memory"><div class="polaroid-caption">ทุกที่ 🚗</div></div>
-                    <div class="polaroid-card"><img src="IMG_8720.jpeg" alt="Memory"><div class="polaroid-caption">ยิ้มกว้าง 😊</div></div>
-                    <div class="polaroid-card"><img src="IMG_8884.jpeg" alt="Memory"><div class="polaroid-caption">ความสุข</div></div>
-                    <div class="polaroid-card"><img src="IMG_8910.jpeg" alt="Memory"><div class="polaroid-caption">หวานๆ 🍯</div></div>
+                <div class="heart-row"><!-- 7 -->
+                    <div class="polaroid-card"><img src="IMG_1736.jpeg" loading="lazy"></div>
+                    <div class="polaroid-card"><img src="IMG_2260.jpeg" loading="lazy"></div>
+                    <div class="polaroid-card"><img src="IMG_5718.jpeg" loading="lazy"></div>
+                    <div class="polaroid-card"><img src="IMG_5729.jpeg" loading="lazy"></div>
+                    <div class="polaroid-card"><img src="IMG_6829.jpeg" loading="lazy"></div>
+                    <div class="polaroid-card"><img src="IMG_8720.jpeg" loading="lazy"></div>
+                    <div class="polaroid-card"><img src="IMG_8884.jpeg" loading="lazy"></div>
                 </div>
-
-                <!-- แถวที่ 4: 3 รูป (เริ่มลู่ลง) -->
-                <div class="heart-row">
-                    <div class="polaroid-card"><img src="IMG_9213.jpeg" alt="Memory"><div class="polaroid-caption">น่ารักจัง</div></div>
-                    <div class="polaroid-card"><img src="IMG_9266.jpeg" alt="Memory"><div class="polaroid-caption">นานๆ ⏱️</div></div>
-                    <div class="polaroid-card"><img src="IMG_9557.jpeg" alt="Memory"><div class="polaroid-caption">ด้วยกัน</div></div>
+                <div class="heart-row"><!-- 5 -->
+                    <div class="polaroid-card"><img src="IMG_8910.jpeg" loading="lazy"></div>
+                    <div class="polaroid-card"><img src="IMG_9557.jpeg" loading="lazy"></div>
+                    <div class="polaroid-card"><img src="IMG_0247.jpeg" loading="lazy"></div>
+                    <div class="polaroid-card"><img src="IMG_0482.jpeg" loading="lazy"></div>
+                    <div class="polaroid-card"><img src="IMG_1132.jpeg" loading="lazy"></div>
                 </div>
-
-                <!-- แถวที่ 5: 2 รูป (ปลายแหลมหัวใจ) -->
-                <div class="heart-row">
-                    <div class="polaroid-card"><img src="att.6zNqTXiX_F7yUT9qfKO3lDx9N-VTONLtFO2Mwf2PlAul.jpeg" alt="Memory"><div class="polaroid-caption">ตลอดไป 💍</div></div>
-                    <div class="polaroid-card"><img src="25C8FD9F-6987-4144-BD97-B1755DFC4D51.jpeg" alt="Memory"><div class="polaroid-caption">รักที่สุด ❤️</div></div>
+                <div class="heart-row"><!-- 3 -->
+                    <div class="polaroid-card"><img src="IMG_1734.jpeg" loading="lazy"></div>
+                    <div class="polaroid-card"><img src="IMG_1736.jpeg" loading="lazy"></div>
+                    <div class="polaroid-card"><img src="IMG_2260.jpeg" loading="lazy"></div>
                 </div>
-
+                <div class="heart-row"><!-- 1 -->
+                    <div class="polaroid-card"><img src="IMG_5718.jpeg" loading="lazy"></div>
+                </div>
             </div>
-        </div>
-
-        <!-- Anniversary Message -->
-        <div class="wish-section">
-            <h3>💌 ข้อความในใจวันครบรอบ</h3>
-            <p>ขอบคุณนะที่คอยอยู่ข้าง ๆ เติมเต็มความสุขและสร้างรอยยิ้มให้กันในทุก ๆ วัน
-ไม่ว่าจะเจอเรื่องดีหรือเรื่องร้าย แค่มีเธออยู่ด้วยก็อุ่นใจเสมอ
-ขอให้เราจับมือกันแน่น ๆ แบบนี้ เดินทางผ่านวันเวลาไปด้วยกันอีกนาน ๆ เลยนะ
-รักเธอที่สุดในโลกเลยยยย! 💍✨</p>
-        </div>
-    </div>
-    
-    <!-- Pop-up -->
-    <div class="popup-overlay" id="popupOverlay">
-        <div class="popup-content">
-            <div class="gift-icon">🎁</div>
-            <h4>HAPPY ANNIVERSARY!</h4>
-            <p>ขอให้วันนี้และทุก ๆ วันของเราเต็มไปด้วยความรักและความเข้าใจแบบนี้ตลอดไปนะค้าบบบบ ❤️</p>
-            <button class="btn-close-popup" onclick="closePopup()">❤️</button>
         </div>
     </div>
 
     <script>
-        // กำหนดวันที่และเวลาเริ่มต้นคบกัน (09 สิงหาคม 2024 เวลา 13:40 น.)
-        const startDate = new Date('2024-08-09T13:40:00');
-
-        function updateCounter() {
-            const now = new Date();
-            const diff = now - startDate;
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerText = days;
-            document.getElementById('hours').innerText = hours;
-            document.getElementById('minutes').innerText = minutes;
-            document.getElementById('seconds').innerText = seconds;
-        }
-        setInterval(updateCounter, 1000);
-        updateCounter();
-
-        // หัวใจลอยหน้าแรก
-        function startLandingHearts() {
-            const container = document.getElementById('landingHeartsContainer');
-            const symbols = ['💖', '❤️', '✨', '🎀', '🎈', '💕'];
-            
-            setInterval(() => {
-                if(document.getElementById('landing').style.display === 'none') return;
-                const heart = document.createElement('div');
-                heart.classList.add('landing-heart');
-                heart.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-                heart.style.left = Math.random() * 95 + 'vw';
-                heart.style.fontSize = (Math.random() * 15 + 18) + 'px';
-                heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
-                container.appendChild(heart);
-
-                setTimeout(() => {
-                    heart.remove();
-                }, 4000);
-            }, 350);
-        }
-        startLandingHearts();
-
         function openWebsite() {
             const landing = document.getElementById('landing');
             const mainContent = document.getElementById('mainContent');
-            
             landing.style.opacity = '0';
             landing.style.visibility = 'hidden';
-            
             setTimeout(() => {
                 landing.style.display = 'none';
                 mainContent.style.display = 'block';
-                setTimeout(() => {
-                    mainContent.classList.add('show');
-                }, 50);
-                
-                startFloatingHearts(); 
-                
-                setTimeout(() => {
-                    document.getElementById('popupOverlay').style.display = 'flex';
-                }, 1200);
-                
+                setTimeout(() => mainContent.classList.add('show'), 50);
             }, 800);
-        }
-
-        function closePopup() {
-            document.getElementById('popupOverlay').style.display = 'none';
-        }
-
-        // หัวใจลอยหน้าหลัก
-        function startFloatingHearts() {
-            const symbols = ['💖', '❤️', '✨', '🎀', '🎈', '💕'];
-            
-            setInterval(() => {
-                const heart = document.createElement('div');
-                heart.classList.add('floating-heart');
-                heart.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-                heart.style.left = Math.random() * 95 + 'vw';
-                heart.style.fontSize = (Math.random() * 15 + 20) + 'px';
-                heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                document.body.appendChild(heart);
-
-                setTimeout(() => {
-                    heart.remove();
-                }, 5000);
-            }, 300);
         }
     </script>
 </body>
