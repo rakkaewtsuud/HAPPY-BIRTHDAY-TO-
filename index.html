@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday to I Auon Kaew ❤️</title>
+    <title>Happy Anniversary to My Love ❤️</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -75,7 +75,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.3), 0 0 25px rgba(255, 255, 255, 0.8);
         }
 
-        /* หัวใจและไอเทมลอยที่หน้าแรก */
         .landing-heart {
             position: absolute;
             font-size: 20px;
@@ -144,18 +143,41 @@
         }
 
         .counter-box h3 {
-            font-size: 1.2rem;
-            color: #777;
+            font-size: 1.3rem;
+            color: #b73252;
+            margin-bottom: 20px;
+        }
+
+        .time-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
             margin-bottom: 15px;
         }
 
-        .counter-number {
-            font-size: 3.5rem;
+        @media (max-width: 600px) {
+            .time-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .time-item {
+            background: #fff5f7;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(255, 82, 119, 0.1);
+        }
+
+        .time-number {
+            font-size: 2rem;
             font-weight: 700;
             color: #ff5277;
-            background: linear-gradient(45deg, #ff3366, #ff6b6b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        }
+
+        .time-label {
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: 5px;
         }
 
         /* Polaroid Gallery Section */
@@ -177,7 +199,6 @@
             justify-items: center;
         }
 
-        /* สไตล์กรอบรูปโพลารอยด์ */
         .polaroid-card {
             background: white;
             padding: 15px 15px 25px 15px;
@@ -188,7 +209,6 @@
             position: relative;
         }
 
-        /* เอฟเฟกต์เอียงซ้าย-ขวาสลับกัน */
         .polaroid-card:nth-child(odd) {
             transform: rotate(-3deg);
         }
@@ -197,7 +217,6 @@
             transform: rotate(3deg);
         }
 
-        /* เมื่อเอาเมาส์ไปชี้ รูปจะตั้งตรงและขยายขึ้นนิดหน่อย */
         .polaroid-card:hover {
             transform: rotate(0deg) scale(1.05);
             box-shadow: 0 15px 35px rgba(0,0,0,0.2);
@@ -246,119 +265,6 @@
             display: inline-block;
             max-width: 650px;
         }
-
-        /* Python Code & Heart Section (สไตล์แบบรูปที่ 2 บนพื้นหลังเข้ม) */
-        .code-heart-section {
-            background: #121212;
-            padding: 40px 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 50px;
-        }
-
-        .code-heart-section h3 {
-            color: #ff6b8b;
-            margin-bottom: 25px;
-            font-size: 1.8rem;
-        }
-
-        .code-heart-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-        }
-
-        /* Canvas วาดรูปหัวใจด้วยโค้ด */
-        #heartCanvasContainer {
-            width: 320px;
-            height: 320px;
-            background: black;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-        }
-
-        #heartCanvas {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* กล่องจำลองหน้าต่าง Code Editor */
-        .code-editor-box {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            text-align: left;
-            padding: 20px;
-            border-radius: 10px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.85rem;
-            width: 350px;
-            max-width: 100%;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-            border: 1px solid #333;
-            position: relative;
-        }
-
-        .code-header-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 8px;
-        }
-
-        .code-dots {
-            display: flex;
-            gap: 6px;
-        }
-
-        .code-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27c93f; }
-
-        .btn-run-code {
-            background: #ff3366;
-            color: white;
-            border: none;
-            padding: 6px 15px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            font-family: 'Prompt', sans-serif;
-            box-shadow: 0 2px 8px rgba(255, 51, 102, 0.4);
-        }
-
-        .btn-run-code:hover {
-            background: #ff1a4d;
-            transform: scale(1.05);
-        }
-
-        .code-content {
-            line-height: 1.5;
-            overflow-x: auto;
-        }
-
-        .c-keyword { color: #c586c0; }
-        .c-def { color: #4ec9b0; }
-        .c-string { color: #ce9178; }
-        .c-number { color: #b5cea8; }
-        .c-comment { color: #6a9955; }
 
         /* Floating Hearts */
         .floating-heart {
@@ -463,49 +369,62 @@
     <!-- Landing Screen -->
     <div id="landing">
         <div id="landingHeartsContainer"></div>
-        <h1>🎉 Happy Birthday ❤️</h1>
-        <p>มีเซอร์ไพรส์เล็ก ๆ น้อย ๆ รอเธออยู่ข้างในนะ... กดเลย!</p>
-        <button class="btn-open" onclick="openWebsite()">กดตรงนี้เลยยยย 💖</button>
+        <h1> Happy Anniversary ❤️</h1>
+        <p>มีเรื่องราวและความทรงจำของเราซ่อนอยู่ข้างในนะ... กดเข้าไปดูเลย!</p>
+        <button class="btn-open" onclick="openWebsite()">กดตรงนี้เพื่อเปิดดูความทรงจำ 💖</button>
     </div>
 
     <!-- Main Content -->
     <div class="container" id="mainContent">
         <header>
-            <h2>Happy Birthday to Kaew ✨</h2>
-            <p>สุขสันต์วันเกิดนะไออ้วน</p>
+            <h2>Happy Anniversary to My Love ✨</h2>
+            <p>สุขสันต์วันครบรอบนะไออ้วน ขอบคุณที่อยู่ข้างกันเสมอมา</p>
         </header>
 
-        <!-- Relationship Counter (735 Days) -->
+        <!-- Relationship Live Counter -->
         <div class="counter-box">
-            <h3>ระยะเวลาที่อยู่ด้วยกัน</h3>
-            <div class="counter-number">735 วัน</div>
-            <p style="margin-top: 10px; color: #888;">ขอบคุณที่อยู่เติมเต็มความสุขให้กันและกันตลอดมานะ</p>
+            <h3>⏳ เวลาที่เราเดินทางมาร่วมกัน</h3>
+            <div class="time-grid">
+                <div class="time-item">
+                    <div class="time-number" id="days">0</div>
+                    <div class="time-label">วัน</div>
+                </div>
+                <div class="time-item">
+                    <div class="time-number" id="hours">0</div>
+                    <div class="time-label">ชั่วโมง</div>
+                </div>
+                <div class="time-item">
+                    <div class="time-number" id="minutes">0</div>
+                    <div class="time-label">นาที</div>
+                </div>
+                <div class="time-item">
+                    <div class="time-number" id="seconds">0</div>
+                    <div class="time-label">วินาที</div>
+                </div>
+            </div>
+            <p style="margin-top: 15px; color: #888; font-size: 0.95rem;">ทุกวินาทีที่มีเธอคือช่วงเวลาที่มีความสุขที่สุดเลยนะ ❤️</p>
         </div>
 
-        <!-- Polaroid Gallery (4 รูป เอียงซ้าย/ขวาสลับกัน) -->
+        <!-- Polaroid Gallery (4 รูป) -->
         <div class="gallery-section">
             <h3>📸 ความทรงจำแสนพิเศษของเรา</h3>
             <div class="polaroid-grid">
                 
-                <!-- รูปที่ 1 (เอียงซ้าย) -->
                 <div class="polaroid-card">
                     <img src="IMG_2260.jpeg" alt="Memory 1">
                     <div class="polaroid-caption">รอยยิ้มของเธอคือความสุข 😊</div>
                 </div>
 
-                <!-- รูปที่ 2 (เอียงขวา) -->
                 <div class="polaroid-card">
                     <img src="IMG_6829.jpeg" alt="Memory 2">
                     <div class="polaroid-caption">ช่วงเวลาดี ๆ ที่มีกัน ❤️</div>
                 </div>
 
-                <!-- รูปที่ 3 (เอียงซ้าย) -->
                 <div class="polaroid-card">
                     <img src="IMG_8720.jpeg" alt="Memory 3">
                     <div class="polaroid-caption">จับมือกันไปนาน ๆ นะ ✨</div>
                 </div>
 
-                <!-- รูปที่ 4 (เอียงขวา) -->
                 <div class="polaroid-card">
                     <img src="IMG_9665.jpeg" alt="Memory 4">
                     <div class="polaroid-caption">รักเธอที่สุดในโลกเลยยยย 🥰</div>
@@ -514,53 +433,13 @@
             </div>
         </div>
 
-        <!-- Wish Message -->
+        <!-- Anniversary Message -->
         <div class="wish-section">
-            <h3>💌 คำอวยพร</h3>
-            <p>ขอให้เธอมีความสุขมาก ๆ ยิ้มเยอะ ๆ สดใสแบบนี้ตลอดไป
-ขอให้สุขภาพร่างกายแข็งแรง ไม่เจ็บไม่ป่วย
-ขอให้ประสบความสำเร็จในสิ่งที่หวังทุกอย่าง
-ไม่ว่าจะเจออะไร ขอให้รู้ว่ามีเค้าคอยอยู่ข้าง ๆ เสมอนะ
-รักเธอที่สุดในโลกเลยยยย! 🎂✨</p>
-        </div>
-
-        <!-- Python Code & Heart Animation Section (สไตล์รูปที่ 2 พร้อมปุ่มกดรันโค้ด) -->
-        <div class="code-heart-section">
-            <h3>💻 Python Heart Animation</h3>
-            <div class="code-heart-container">
-                <!-- ส่วนแสดงผลรูปหัวใจ -->
-                <div id="heartCanvasContainer">
-                    <canvas id="heartCanvas" width="320" height="320"></canvas>
-                </div>
-
-                <!-- หน้าต่างจำลองโค้ด Python -->
-                <div class="code-editor-box">
-                    <div class="code-header-bar">
-                        <div class="code-dots">
-                            <div class="code-dot dot-red"></div>
-                            <div class="code-dot dot-yellow"></div>
-                            <div class="code-dot dot-green"></div>
-                        </div>
-                        <button class="btn-run-code" onclick="runPythonHeart()">▶ รันโค้ด</button>
-                    </div>
-                    <div class="code-content">
-<span class="c-keyword">import</span> turtle<br>
-<span class="c-keyword">import</span> math<br><br>
-screen = turtle.Screen()<br>
-screen.bgcolor(<span class="c-string">"black"</span>)<br>
-t = turtle.Turtle()<br>
-t.color(<span class="c-string">"#ffb6c1"</span>)<br><br>
-<span class="c-comment"># วาดรูปหัวใจสื่อรักถึงเธอ</span><br>
-<span class="c-keyword">for</span> i <span class="c-keyword">in</span> <span class="c-def">range</span>(<span class="c-number">120</span>):<br>
-&nbsp;&nbsp;angle = i * (math.pi * <span class="c-number">2</span>) / <span class="c-number">120</span><br>
-&nbsp;&nbsp;x = <span class="c-number">16</span> * (math.sin(angle) ** <span class="c-number">3</span>)<br>
-&nbsp;&nbsp;y = (<span class="c-number">13</span> * math.cos(angle) - <span class="c-number">5</span> *<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;math.cos(<span class="c-number">2</span> * angle)) * <span class="c-number">11</span><br>
-&nbsp;&nbsp;t.goto(x, y)<br>
-<span class="c-keyword">print</span>(<span class="c-string">"I Love You ❤️"</span>)
-                    </div>
-                </div>
-            </div>
+            <h3>💌 ข้อความในใจวันครบรอบ</h3>
+            <p>ขอบคุณนะที่คอยอยู่ข้าง ๆ เติมเต็มความสุขและสร้างรอยยิ้มให้กันในทุก ๆ วัน
+ไม่ว่าจะเจอเรื่องดีหรือเรื่องร้าย แค่มีเธออยู่ด้วยก็อุ่นใจเสมอ
+ขอให้เราจับมือกันแน่น ๆ แบบนี้ เดินทางผ่านวันเวลาไปด้วยกันอีกนาน ๆ เลยนะ
+รักเธอที่สุดในโลกเลยยยย! 💍✨</p>
         </div>
     </div>
     
@@ -568,14 +447,34 @@ t.color(<span class="c-string">"#ffb6c1"</span>)<br><br>
     <div class="popup-overlay" id="popupOverlay">
         <div class="popup-content">
             <div class="gift-icon">🎁</div>
-            <h4>SURPRISE!</h4>
-            <p>มีคนแอบเตรียมของขวัญชิ้นนี้ไว้ให้ด้วยนะ... ขอให้วันนี้เป็นวันที่ดีที่สุดของเธอค้าบบบบ ❤️</p>
+            <h4>HAPPY ANNIVERSARY!</h4>
+            <p>ขอให้วันนี้และทุก ๆ วันของเราเต็มไปด้วยความรักและความเข้าใจแบบนี้ตลอดไปนะค้าบบบบ ❤️</p>
             <button class="btn-close-popup" onclick="closePopup()">❤️</button>
         </div>
     </div>
 
     <script>
-        // สร้างหัวใจและไอเทมลอยที่หน้าแรก
+        // กำหนดวันที่เริ่มต้นคบกัน (สามารถเปลี่ยนวันที่ตรงนี้ได้ตามต้องการ เช่น '2024-01-01T00:00:00')
+        const startDate = new Date('2024-01-01T00:00:00');
+
+        function updateCounter() {
+            const now = new Date();
+            const diff = now - startDate;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days;
+            document.getElementById('hours').innerText = hours;
+            document.getElementById('minutes').innerText = minutes;
+            document.getElementById('seconds').innerText = seconds;
+        }
+        setInterval(updateCounter, 1000);
+        updateCounter();
+
+        // หัวใจลอยหน้าแรก
         function startLandingHearts() {
             const container = document.getElementById('landingHeartsContainer');
             const symbols = ['💖', '❤️', '✨', '🎀', '🎈', '💕'];
@@ -609,7 +508,6 @@ t.color(<span class="c-string">"#ffb6c1"</span>)<br><br>
                 mainContent.style.display = 'block';
                 setTimeout(() => {
                     mainContent.classList.add('show');
-                    drawHeartOutline(); // วาดโครงร่างหัวใจรอไว้เบาๆ
                 }, 50);
                 
                 startFloatingHearts(); 
@@ -625,7 +523,7 @@ t.color(<span class="c-string">"#ffb6c1"</span>)<br><br>
             document.getElementById('popupOverlay').style.display = 'none';
         }
 
-        // สร้างหัวใจและไอเทมลอยที่หน้าหลัก
+        // หัวใจลอยหน้าหลัก
         function startFloatingHearts() {
             const symbols = ['💖', '❤️', '✨', '🎀', '🎈', '💕'];
             
@@ -642,56 +540,6 @@ t.color(<span class="c-string">"#ffb6c1"</span>)<br><br>
                     heart.remove();
                 }, 5000);
             }, 300);
-        }
-
-        // ฟังก์ชันวาดโครงหัวใจจางๆ บน Canvas
-        function drawHeartOutline() {
-            const canvas = document.getElementById('heartCanvas');
-            const ctx = canvas.getContext('2d');
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.strokeStyle = '#2a151b';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            for (let i = 0; i < 120; i++) {
-                let angle = i * (Math.PI * 2) / 120;
-                let x = 16 * Math.pow(Math.sin(angle), 3);
-                let y = -(13 * Math.cos(angle) - 5 * Math.cos(2 * angle) - 2 * Math.cos(3 * angle) - Math.cos(4 * angle));
-                let screenX = canvas.width / 2 + x * 9;
-                let screenY = canvas.height / 2 + y * 9 - 10;
-                if (i === 0) ctx.moveTo(screenX, screenY);
-                else ctx.lineTo(screenX, screenY);
-            }
-            ctx.closePath();
-            ctx.stroke();
-        }
-
-        // ฟังก์ชันรันโค้ดจำลองการวาดด้วยตัวอักษร I love you
-        function runPythonHeart() {
-            const canvas = document.getElementById('heartCanvas');
-            const ctx = canvas.getContext('2d');
-            let i = 0;
-            
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            function animateDrawing() {
-                if (i <= 120) {
-                    ctx.fillStyle = '#ffb6c1';
-                    ctx.font = 'bold 9px Arial';
-                    ctx.textAlign = 'center';
-                    
-                    let angle = i * (Math.PI * 2) / 120;
-                    let x = 16 * Math.pow(Math.sin(angle), 3);
-                    let y = -(13 * Math.cos(angle) - 5 * Math.cos(2 * angle) - 2 * Math.cos(3 * angle) - Math.cos(4 * angle));
-                    
-                    let screenX = canvas.width / 2 + x * 9;
-                    let screenY = canvas.height / 2 + y * 9 - 10;
-                    
-                    ctx.fillText('I love you', screenX, screenY);
-                    i += 2;
-                    requestAnimationFrame(animateDrawing);
-                }
-            }
-            animateDrawing();
         }
     </script>
 </body>
