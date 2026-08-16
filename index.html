@@ -104,7 +104,7 @@
 
         /* Main Content */
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             padding: 40px 20px;
             display: none;
@@ -185,7 +185,7 @@
             margin-top: 5px;
         }
 
-        /* Heart Polaroid Gallery Layout (ย่อขนาดให้พอดีจอ ไม่ล้น) */
+        /* Heart Polaroid Gallery Layout (20 รูป จัดทรงหัวใจสมดุล) */
         .gallery-section {
             margin-bottom: 50px;
         }
@@ -201,34 +201,34 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             width: 100%;
         }
 
         .heart-row {
             display: flex;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             width: 100%;
         }
 
-        /* แถวแรกทำรอยหยักหัวใจให้กว้างขึ้นพอดีๆ */
+        /* แถวแรกทำรอยหยักหัวใจซ้าย-ขวา ให้เว้นระยะตรงกลาง */
         .heart-row.top-heart-row {
             gap: 75px; 
         }
 
         @media (max-width: 600px) {
             .heart-row.top-heart-row {
-                gap: 55px;
+                gap: 45px;
             }
         }
 
         .polaroid-card {
             background: white;
-            padding: 6px 6px 12px 6px;
+            padding: 5px 5px 10px 5px;
             border-radius: 3px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            width: 95px; /* ย่อขนาดความกว้างลง */
+            width: 78px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
         }
@@ -242,22 +242,22 @@
         }
 
         .polaroid-card:hover {
-            transform: rotate(0deg) scale(1.1);
+            transform: rotate(0deg) scale(1.15);
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             z-index: 5;
         }
 
         .polaroid-card img {
             width: 100%;
-            height: 75px; /* ย่อความสูงรูปให้พอดีกับกรอบเล็ก */
+            height: 60px;
             object-fit: cover;
             border-radius: 2px;
         }
 
         .polaroid-caption {
             text-align: center;
-            margin-top: 5px;
-            font-size: 0.65rem; /* ปรับตัวหนังสือใต้รูปให้เล็กลง */
+            margin-top: 4px;
+            font-size: 0.55rem;
             color: #555;
             font-family: 'Prompt', sans-serif;
             white-space: nowrap;
@@ -267,14 +267,14 @@
 
         @media (max-width: 600px) {
             .polaroid-card {
-                width: 80px;
-                padding: 5px 5px 10px 5px;
+                width: 65px;
+                padding: 4px 4px 8px 4px;
             }
             .polaroid-card img {
-                height: 62px;
+                height: 50px;
             }
             .heart-row {
-                gap: 5px;
+                gap: 4px;
             }
         }
 
@@ -445,81 +445,59 @@
             <p style="margin-top: 15px; color: #888; font-size: 0.95rem;">ทุกวินาทีที่มีเธอคือช่วงเวลาที่มีความสุขที่สุดเลยนะ ❤️</p>
         </div>
 
-        <!-- Polaroid Gallery (จัดเรียงทรงหัวใจขนาดกะทัดรัด ไม่ล้นจอ) -->
+        <!-- Polaroid Gallery (จัดเรียงทรงหัวใจ 20 รูป ตามไฟล์จริง) -->
         <div class="gallery-section">
             <h3>📸 ความทรงจำแสนพิเศษของเรา</h3>
             <div class="heart-shape-container">
-                <!-- แถวที่ 1 (ยอดหัวใจซ้าย-ขวา): 2 รูป -->
+                
+                <!-- แถวที่ 1 (ยอดหัวใจซ้าย-ขวา): 4 รูป -->
                 <div class="heart-row top-heart-row">
                     <div class="polaroid-card">
-                        <img src="IMG_0247.jpeg" alt="Memory">
-                        <div class="polaroid-caption">ความทรงจำดีๆ ✨</div>
+                        <img src="IMG_0075.jpeg" alt="Memory"><div class="polaroid-caption">ความทรงจำ 💖</div>
                     </div>
                     <div class="polaroid-card">
-                        <img src="IMG_0482.jpeg" alt="Memory">
-                        <div class="polaroid-caption">ยิ้มหวานๆ 😊</div>
+                        <img src="IMG_0247.jpeg" alt="Memory"><div class="polaroid-caption">ยิ้มหวาน ✨</div>
+                    </div>
+                    <div class="polaroid-card">
+                        <img src="IMG_0482.jpeg" alt="Memory"><div class="polaroid-caption">น่ารัก 🥰</div>
+                    </div>
+                    <div class="polaroid-card">
+                        <img src="IMG_1132.jpeg" alt="Memory"><div class="polaroid-caption">อบอุ่น ☀️</div>
                     </div>
                 </div>
 
-                <!-- แถวที่ 2: 4 รูป -->
+                <!-- แถวที่ 2: 6 รูป -->
                 <div class="heart-row">
-                    <div class="polaroid-card">
-                        <img src="IMG_1132.jpeg" alt="Memory">
-                        <div class="polaroid-caption">ช่วงเวลาพิเศษ ❤️</div>
-                    </div>
-                    <div class="polaroid-card">
-                        <img src="IMG_1734.jpeg" alt="Memory">
-                        <div class="polaroid-caption">น่ารักที่สุด 🥰</div>
-                    </div>
-                    <div class="polaroid-card">
-                        <img src="IMG_1736.jpeg" alt="Memory">
-                        <div class="polaroid-caption">จับมือกันไว้ 🤝</div>
-                    </div>
-                    <div class="polaroid-card">
-                        <img src="IMG_2260.jpeg" alt="Memory">
-                        <div class="polaroid-caption">มีความสุขจัง 💕</div>
-                    </div>
+                    <div class="polaroid-card"><img src="IMG_1734.jpeg" alt="Memory"><div class="polaroid-caption">ด้วยกัน 💕</div></div>
+                    <div class="polaroid-card"><img src="IMG_1736.jpeg" alt="Memory"><div class="polaroid-caption">มีความสุข</div></div>
+                    <div class="polaroid-card"><img src="IMG_2260.jpeg" alt="Memory"><div class="polaroid-caption">ดีต่อใจ ✨</div></div>
+                    <div class="polaroid-card"><img src="IMG_5718.jpeg" alt="Memory"><div class="polaroid-caption">คนโปรด 🌟</div></div>
+                    <div class="polaroid-card"><img src="IMG_5720.jpeg" alt="Memory"><div class="polaroid-caption">จับมือ 🤝</div></div>
+                    <div class="polaroid-card"><img src="IMG_5729.jpeg" alt="Memory"><div class="polaroid-caption">ที่รัก 🥰</div></div>
                 </div>
 
-                <!-- แถวที่ 3: 4 รูป -->
+                <!-- แถวที่ 3: 5 รูป (จุดที่กว้างที่สุดของหัวใจ) -->
                 <div class="heart-row">
-                    <div class="polaroid-card">
-                        <img src="IMG_5718.jpeg" alt="Memory">
-                        <div class="polaroid-caption">โมเมนต์นี้ดีต่อใจ ✨</div>
-                    </div>
-                    <div class="polaroid-card">
-                        <img src="IMG_5729.jpeg" alt="Memory">
-                        <div class="polaroid-caption">ไปด้วยกันทุกที่ 🚗</div>
-                    </div>
-                    <div class="polaroid-card">
-                        <img src="IMG_6829.jpeg" alt="Memory">
-                        <div class="polaroid-caption">รักเธอนะ 💖</div>
-                    </div>
-                    <div class="polaroid-card">
-                        <img src="IMG_8720.jpeg" alt="Memory">
-                        <div class="polaroid-caption">คนโปรดของฉัน 🌟</div>
-                    </div>
+                    <div class="polaroid-card"><img src="IMG_6786.jpeg" alt="Memory"><div class="polaroid-caption">รักนะ 💖</div></div>
+                    <div class="polaroid-card"><img src="IMG_6829.jpeg" alt="Memory"><div class="polaroid-caption">ทุกที่ 🚗</div></div>
+                    <div class="polaroid-card"><img src="IMG_8720.jpeg" alt="Memory"><div class="polaroid-caption">ยิ้มกว้าง 😊</div></div>
+                    <div class="polaroid-card"><img src="IMG_8884.jpeg" alt="Memory"><div class="polaroid-caption">ความสุข</div></div>
+                    <div class="polaroid-card"><img src="IMG_8910.jpeg" alt="Memory"><div class="polaroid-caption">หวานๆ 🍯</div></div>
                 </div>
 
-                <!-- แถวที่ 4: 2 รูป -->
+                <!-- แถวที่ 4: 3 รูป (เริ่มลู่ลง) -->
                 <div class="heart-row">
-                    <div class="polaroid-card">
-                        <img src="IMG_8884.jpeg" alt="Memory">
-                        <div class="polaroid-caption">อบอุ่นเสมอ ☀️</div>
-                    </div>
-                    <div class="polaroid-card">
-                        <img src="IMG_8910.jpeg" alt="Memory">
-                        <div class="polaroid-caption">รอยยิ้มของเธอ 😊</div>
-                    </div>
+                    <div class="polaroid-card"><img src="IMG_9213.jpeg" alt="Memory"><div class="polaroid-caption">น่ารักจัง</div></div>
+                    <div class="polaroid-card"><img src="IMG_9266.jpeg" alt="Memory"><div class="polaroid-caption">นานๆ ⏱️</div></div>
+                    <div class="polaroid-card"><img src="IMG_9557.jpeg" alt="Memory"><div class="polaroid-caption">ด้วยกัน</div></div>
                 </div>
 
-                <!-- แถวที่ 5 (ปลายแหลมหัวใจ): 1 รูป -->
+                <!-- แถวที่ 5: 2 รูป (ปลายแหลมหัวใจ) -->
                 <div class="heart-row">
-                    <div class="polaroid-card">
-                        <img src="IMG_9557.jpeg" alt="Memory">
-                        <div class="polaroid-caption">รักเธอที่สุดในโลก ❤️</div>
-                    </div>
+                    <div class="polaroid-card"><img src="att.6zNqTXiX_F7yUT9qfKO3lDx9N-VTONLtFO2Mwf2PlAul.jpeg" alt="Memory"><div class="polaroid-caption">ตลอดไป 💍</div></div>
+                    <div class="polaroid-card"><img src="25C8FD9F-6987-4144-BD97-B1755DFC4D51.jpeg" alt="Memory"><div class="polaroid-caption">รักที่สุด ❤️</div></div>
                 </div>
+
             </div>
         </div>
 
